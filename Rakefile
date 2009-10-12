@@ -214,7 +214,12 @@ begin
     gem.rdoc_options     = %w{--main README.rdoc --charset utf-8 --line-numbers}
     gem.extra_rdoc_files =  %w{MIT-LICENSE README.rdoc}
   end
-
+  
+  Jeweler::RubyforgeTasks.new do |rubyforge|
+    rubyforge.doc_task = "rdoc"
+  end
+  
+  Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
 end
@@ -243,7 +248,7 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
     version = ""
   end
   
-  rdoc.rdoc_dir = 'doc'
+  rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'Stringex: A String Extension Pack [#{version}]'
   rdoc.options << '--line-numbers' << '--inline-source'
   rdoc.options << '--charset' << 'utf-8'
