@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # 100% shorthand
 module CodepointTestHelper
   def assert_equal_encoded(expected, encode_mes)
@@ -16,12 +17,12 @@ module CodepointTestHelper
       end
     end
   end
-  
+
 private
   def encode(codepoint)
     LuckySneaks::Unidecoder.encode(codepoint)
   end
-  
+
   def which_yaml(codepoint)
     LuckySneaks::Unidecoder.in_yaml_file(encode(codepoint))
   end
